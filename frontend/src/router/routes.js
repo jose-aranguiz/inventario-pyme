@@ -4,18 +4,18 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/IndexPage.vue') },
-      // --- ESTA LÍNEA ES CLAVE ---
-      { path: 'inventario', component: () => import('pages/InventarioPage.vue') }
-      // ---------------------------
-    ]
+      { path: 'inventario', component: () => import('pages/InventarioPage.vue') },
+      // 👇 NUEVA RUTA 👇
+      { path: 'historial', component: () => import('pages/HistorialPage.vue') }
+    ],
   },
 
   // Always leave this as last one,
   // but you can also remove it
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue')
-  }
+    component: () => import('pages/ErrorNotFound.vue'),
+  },
 ]
 
 export default routes

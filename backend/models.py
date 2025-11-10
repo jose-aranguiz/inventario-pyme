@@ -15,7 +15,7 @@ class Producto(Base):
     stock_minimo = Column(Integer, default=5) # Alerta si baja de 5 unidades
 
     # Relación con movimientos (para poder acceder a ellos fácilmente desde un producto)
-    movimientos = relationship("MovimientoStock", back_populates="producto")
+    movimientos = relationship("MovimientoStock", back_populates="producto", cascade="all, delete-orphan")
 
 class MovimientoStock(Base):
     __tablename__ = "movimientos_stock"
